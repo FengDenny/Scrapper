@@ -1,0 +1,32 @@
+{
+  "header": "2024 Drama",
+  "dramas": [
+    {
+      "In Bed With A Stranger": [
+        {
+          "imgSrc": "//img.tvbaw.com/eyJidWNrZXQiOiJ0dmJhdy1uYSIsImtleSI6ImltYWdlcy9yZWd1bGFyLzRiZTg0MDRkLTY2OWYtNDEzOS1iOWQ3LWU1YTQwYTA1YTkxZC5qcGciLCJlZGl0cyI6eyJyZXNpemUiOiB7IndpZHRoIjoxNTgsImhlaWdodCI6MjI1LCJmaXQiOiJjb3ZlciJ9IH19"
+        }
+      ],
+      "Happily Ever After?": [
+        {
+          "imgSrc": "//img.tvbaw.com/eyJidWNrZXQiOiJ0dmJhdy1uYSIsImtleSI6ImltYWdlcy9wb3N0ZXIvN2UyZmNhZTEtMmI5Ny00ZmZhLWE2YzUtODlkZjlkMzA5YWRlLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6IHsid2lkdGgiOjE1OCwiaGVpZ2h0IjoyMjUsImZpdCI6ImNvdmVyIn0gfX0="
+        }
+      ],
+      "Justice Sung Begins": [
+        {
+          "imgSrc": "//img.tvbaw.com/eyJidWNrZXQiOiJ0dmJhdy1uYSIsImtleSI6ImltYWdlcy9wb3N0ZXIvNWNmY2JjMzUtNTJhOS00ODI5LTg1MjUtZmJhNWY0Nzk3ZjhjLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6IHsid2lkdGgiOjE1OCwiaGVpZ2h0IjoyMjUsImZpdCI6ImNvdmVyIn0gfX0="
+        }
+      ],
+      "A Fallen Xian": [
+        {
+          "imgSrc": "//img.tvbaw.com/eyJidWNrZXQiOiJ0dmJhdy1uYSIsImtleSI6ImltYWdlcy9wb3N0ZXIvYzYxYTc2OGQtZjM2YS00YTE5LWFiMDctZDVkNTYwNTkyOTUyLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6IHsid2lkdGgiOjE1OCwiaGVpZ2h0IjoyMjUsImZpdCI6ImNvdmVyIn0gfX0="
+        }
+      ],
+      "The Airport Diary": [
+        {
+          "imgSrc": "//img.tvbaw.com/eyJidWNrZXQiOiJ0dmJhdy1uYSIsImtleSI6ImltYWdlcy9wb3N0ZXIvMDc3OGZlMmUtZGQyNi00YTQ3LTllY2MtYmY3NmM1MTAxNWE1LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6IHsid2lkdGgiOjE1OCwiaGVpZ2h0IjoyMjUsImZpdCI6ImNvdmVyIn0gfX0="
+        }
+      ]
+    }
+  ]
+}
