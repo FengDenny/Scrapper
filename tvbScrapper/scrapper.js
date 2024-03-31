@@ -17,6 +17,23 @@ async function closeBrowser(browser) {
   return browser.close();
 }
 
+async function processBannerData(page, drama){
+  const dramaHref = drama.link
+
+  try{
+    await page.goto(dramaHref)
+    const bannerImgSrc = await page.evaluate(() => {
+      const bannerDiv = document.querySelector(".banner-div img")
+      if (bannerDiv){
+        const imgElement = bannerDiv.getAttribute("src")
+        return imgElement ? imgElement : null
+      }
+    })
+    drama.banner = bannerImgSrc
+  }catch(error){
+    console.error("Error fetching document:", error);
+  }
+}
 
 
 async function processData(page, drama, dramasMap) {
@@ -32,22 +49,7 @@ async function processData(page, drama, dramasMap) {
   }
 
   for (const dramaItem of lookupDrama) {
-    const dramaHref = dramaItem.link;
-    try {
-      await page.goto(dramaHref);
-      const bannerImgSrc = await page.evaluate(() => {
-        const bannerDiv = document.querySelector(".banner-div");
-        if (bannerDiv) {
-          const imgElement = bannerDiv.querySelector("img");
-          if (imgElement) return imgElement.getAttribute("src");
-        }
-        return null;
-      });
-
-      lookupDrama.forEach((drama) => (drama.banner = bannerImgSrc));
-    } catch (error) {
-      console.error("Error fetching document:", error);
-    }
+    await processBannerData(page, dramaItem)
   }
 }
 
@@ -153,6 +155,11 @@ async function retrieveAllDataBySections(url, dataFile, sections) {
   }
 }
 
+async function retrieveDataByTitle(url, dataFile) {
+  const sectionNames = await retrieveHeaders(url); 
+  return await retrieveAllDataBySections(url, dataFile, sectionNames.filter((title) => title === "2024 Drama" ));
+}
+
 async function retrieveAllShowsData(url) {
   const dataFile = "allShowsData.json";
   const sectionNames = await retrieveHeaders(url); 
@@ -187,7 +194,12 @@ async function retrieveCollections(url) {
   return await retrieveAllDataBySections(url, dataFile, filterSections);
 }
 
+
+
+
 const tvbUrlEnglish = "https://tvbanywherena.com/english";
 
 // retrieveCollections(tvbUrlEnglish);
-retrieveAllShowsData(tvbUrlEnglish)
+// retrieveAllShowsData(tvbUrlEnglish)
+retrieveDataByTitle(tvbUrlEnglish, "currentYearCollection.json")
+
