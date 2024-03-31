@@ -155,9 +155,9 @@ async function retrieveAllDataBySections(url, dataFile, sections) {
   }
 }
 
-async function retrieveDataByTitle(url, dataFile) {
+async function retrieveDataByTitle(url, dataFile, dramaTitle) {
   const sectionNames = await retrieveHeaders(url); 
-  return await retrieveAllDataBySections(url, dataFile, sectionNames.filter((title) => title === "2024 Drama" ));
+  return await retrieveAllDataBySections(url, dataFile, sectionNames.filter((title) => title === dramaTitle ));
 }
 
 async function retrieveAllShowsData(url) {
@@ -201,5 +201,5 @@ const tvbUrlEnglish = "https://tvbanywherena.com/english";
 
 // retrieveCollections(tvbUrlEnglish);
 // retrieveAllShowsData(tvbUrlEnglish)
-retrieveDataByTitle(tvbUrlEnglish, "currentYearCollection.json")
+retrieveDataByTitle(tvbUrlEnglish, "currentYearCollection.json", "2024 Drama")
 
