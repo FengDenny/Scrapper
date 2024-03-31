@@ -4,10 +4,11 @@ import { readDataFromFile, checkFileData } from "./dataCreation.js";
 async function setupPage(url) {
   const browser = await puppeteer.launch({
     headless: false,
-    defaultViewport: null
+    defaultViewport: null,
+    timeout: 0
   });
   const page = await browser.newPage();
-  page.setDefaultNavigationTimeout(0); // allow more time for the page to load for big data
+  page.setDefaultNavigationTimeout(0); 
   await page.goto(url);
   return { browser, page };
 }
@@ -49,6 +50,7 @@ async function processData(page, drama, dramasMap) {
     }
   }
 }
+
 async function extractHeaders(page) {
   const headersArray = await page.evaluate(() => {
     return Array.from(document.querySelectorAll('.container.section-header h3'))
@@ -127,7 +129,6 @@ async function extractDramaBySection(page, sectionNames, url) {
 
 
 
-
 async function retrieveHeaders(url){
   const {browser, page} = await setupPage(url)
   const headers = await extractHeaders(page)
@@ -182,5 +183,5 @@ async function retrieveCollections(url) {
 
 const tvbUrlEnglish = "https://tvbanywherena.com/english";
 
-retrieveCollections(tvbUrlEnglish);
-// retrieveAllShowsData(tvbUrlEnglish)
+// retrieveCollections(tvbUrlEnglish);
+retrieveAllShowsData(tvbUrlEnglish)
