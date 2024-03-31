@@ -5,7 +5,7 @@ async function setupPage(url) {
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
-    timeout: 0
+    protocolTimeout: 0
   });
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(0); 
@@ -155,6 +155,12 @@ async function retrieveAllDataBySections(url, dataFile, sections) {
 
 async function retrieveAllShowsData(url) {
   const dataFile = "allShowsData.json";
+  const sectionNames = await retrieveHeaders(url); 
+  return await retrieveAllDataBySections(url, dataFile, sectionNames);
+}
+
+async function retrieveOddShowsData(url) {
+  const dataFile = "oddShowsData.json";
   const sectionNames = await retrieveHeaders(url); 
   return await retrieveAllDataBySections(url, dataFile, sectionNames.filter((_, index) => index % 2 === 1));
 }
